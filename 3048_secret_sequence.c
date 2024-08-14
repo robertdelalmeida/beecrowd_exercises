@@ -2,10 +2,11 @@
 
 int main()
 {
-    int n, i[500], num, mark;
+    int n, i[500], num, mark = 0;
+
     scanf("%d", &n);
+
     i[0] = 0;
-    mark = 0;
     for (int j = 1; j < n + 1; j++)
     {
         scanf("%d", &num);
@@ -13,6 +14,8 @@ int main()
         if (i[j] != i[j - 1])
         mark++;    
     }
+
     printf("%d\n", mark);
+    
     return 0;
 }

@@ -1,8 +1,11 @@
 #include <stdio.h>
  
-int main() {
+int main()
+{
     long long a, b, i, j;
+
     scanf("%lld%lld", &a, &b);
+
     if (a < 0)
         a = 0;
     else if (a <= 1)
@@ -14,6 +17,7 @@ int main() {
             i--;
         }
     }
+
     if (b < 0)
         b = 0;
     else if (b <= 1)
@@ -25,6 +29,8 @@ int main() {
             j--;
         }
     }
+
     printf("%lld\n", a + b);
+    
     return 0;
 }

@@ -3,8 +3,11 @@
 int main()
 {
     int i, j, aux, a, b, c;
-    scanf("%d%d%d", &a, &b, &c);   
+
+    scanf("%d%d%d", &a, &b, &c);
+
     int array[3]= {a, b, c};
+
     j = 0;
     while (j < 3)
     {
@@ -21,6 +24,8 @@ int main()
         }
         j++;
     }
+
     printf("%d\n%d\n%d\n\n%d\n%d\n%d\n", array[0], array[1], array[2], a, b, c);
+    
     return 0;
 }
