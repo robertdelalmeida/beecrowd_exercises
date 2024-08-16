@@ -1,90 +1,41 @@
 #include <stdio.h>
 
-int	ft_getnbr(int nb)
+void	ft_getnbr (int nb, int *zero, int *one, int *two, int *three, int *four, int *five, int *six, int *seven, int *eight, int *nine)
 {
-    int n = 0;
-    if (nb >= 10 && nb != n)
-	{
-        return (ft_getnbr(nb / 10));
-        nb = n;
-	}
-    if (nb >= 10 && nb == n)
-        return (ft_getnbr(nb % 10));
-    return (nb);
+    while (nb > 0) {
+        int digit = nb % 10;
+
+        if (digit == 0) *zero += 1;
+        else if (digit == 1) *one += 1;
+        else if (digit == 2) *two += 1;
+        else if (digit == 3) *three += 1;
+        else if (digit == 4) *four += 1;
+        else if (digit == 5) *five += 1;
+        else if (digit == 6) *six += 1;
+        else if (digit == 7) *seven += 1;
+        else if (digit == 8) *eight += 1;
+        else if (digit == 9) *nine += 1;
+
+        nb /= 10;
+    }
 }
 
 int main()
 {
-    int x, y, divider, nb, i = 0;
+    int x, y;
 
     while ((scanf("%d %d", &x, &y)) != 0) {
-        int zero = 0, one = 0, two = 0, three = 0, four = 0, five = 0, six = 0, seven = 0, eight = 0, nine = 0;
         if (y == 0)
-            return 0;
-        while (x <= y) {
-            if (x >= 1000) {
-                while (i < 3) {
-                    nb = ft_getnbr(x);
-                    if (nb == 0) zero++;
-                    else if (nb == 1) one++;
-                    else if (nb == 2) two++;
-                    else if (nb == 3) three++;
-                    else if (nb == 4) four++;
-                    else if (nb == 5) five++;
-                    else if (nb == 6) six++;
-                    else if (nb == 7) seven++;
-                    else if (nb == 8) eight++;
-                    else if (nb == 9) nine++;
-                }
-            }
-            else if (x >= 100) {
-                i = 0;
-                while (i < 2) {
-                    nb = ft_getnbr(x); 
-                    if (nb == 0) zero++;
-                    else if (nb == 1) one++;
-                    else if (nb == 2) two++;
-                    else if (nb == 3) three++;
-                    else if (nb == 4) four++;
-                    else if (nb == 5) five++;
-                    else if (nb == 6) six++;
-                    else if (nb == 7) seven++;
-                    else if (nb == 8) eight++;
-                    else if (nb == 9) nine++;
-                }
-            }
-            else if (x >= 10) {
-                i = 0;
-                while(i < 1) {
-                    nb = ft_getnbr(x);
-                    if (nb == 0) zero++;
-                    else if (nb == 1) one++;
-                    else if (nb == 2) two++;
-                    else if (nb == 3) three++;
-                    else if (nb == 4) four++;
-                    else if (nb == 5) five++;
-                    else if (nb == 6) six++;
-                    else if (nb == 7) seven++;
-                    else if (nb == 8) eight++;
-                    else if (nb == 9) nine++;
-                }
-            }
-            else
-                nb = ft_getnbr(x);
-            printf("%d\n", nb);
-            if (nb == 0) zero++;
-            else if (nb == 1) one++;
-            else if (nb == 2) two++;
-            else if (nb == 3) three++;
-            else if (nb == 4) four++;
-            else if (nb == 5) five++;
-            else if (nb == 6) six++;
-            else if (nb == 7) seven++;
-            else if (nb == 8) eight++;
-            else if (nb == 9) nine++;
-            x++;
+            return 1;
+
+        int zero = 0, one = 0, two = 0, three = 0, four = 0, five = 0, six = 0, seven = 0, eight = 0, nine = 0;
+
+        for (int i = x; i <= y; i++){
+            if (i == 0)
+                zero++;
+            else ft_getnbr(i, &zero, &one, &two, &three, &four, &five, &six, &seven, &eight, &nine);
         }
-        printf("zero: %d one: %d two: %d three: %d four: %d five: %d six: %d seven: %d eight: %d nine: %d\n", zero, one, two, three, four, five, six, seven, eight, nine);
+        printf("%d %d %d %d %d %d %d %d %d %d\n", zero, one, two, three, four, five, six, seven, eight, nine);
     }
     return 0;
 }
